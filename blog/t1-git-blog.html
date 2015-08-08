@@ -1,28 +1,49 @@
 <!DOCTYPE html>
+<html>
 <head>
   <title>Your page title here</title>
   <meta charset="UTF-8">
-  <link rel="stylesheet" type="text/css" href="your-stylesheet-link-here.css">
+  
+  <link rel="stylesheet" type="text/css" href="../index-stylesheet.css">
+  
 </head>
 
 <main>
-  <h1>DBC Blog Post 1</h1>
-  <h2>:  Version control, Git, GitHub</h2>
-  <h4>August 2, 2015</h4>
+
+  <div class="header">
+    <div class="blogtopbar">
+      <h4>
+        Blog
+      </h4>
+      <div class=search>
+        Search
+      </div>
+    </div>
+  </div>
 
   <section>
+
+    <h1>DBC Blog Post 1:  Version control, Git, GitHub</h1>
+    <h2>August 2, 2015</h2>
+
+  </section>
+  <section id="postbody">
     <p>
         This is my first blog post for DBC and I am going to keep it fairly brief.  In this post I will talk about version control, Git, and Github.  
-    <p>
+    </p>
     <p>
         Version control allows one to move between different versions of a project and choose which version to work on.  This is advantageous for all the obvious reasons (like if your boss doesn't like an addition you have made in a new version, to see how your project has progressed, to allow multiple people to work on a project at once without stepping on each others toes, etc.)
     </p>
+    <p>
         Git is free software and is one of the most commonly used version control systems for programmers. Git seperates your work into 3 stages:  unstaged, staged, and commited.  Unstaged is sort of a work in progress.  When you are playing around with your code in an editor, you don't want git to bother saving every single keystroke you use, so until you hit save, git just calls any changes you make unstaged.  Git will not remember or track any of the changes you make while your code is unstaged.  Once you want git to start tracking changes, just save your file in the editor (command s) and all the changes will move from unstaged to staged.  Staged changes still are not tracked as any particular version of your project.  All it means to have a staged change is that git is ready to save all staged changes into a version, or a commit.  Once you have commited a change, git will remember a new, changed version of your project until you delete it.
     </p>
     <p>
         Github is basically a hosting service on the web for git.  You can push (send) your git repositories and any version of any project to github and you can also pull (take) repositories from github and bring them to your computer (wherever you are). This allows you to access your code from anywhere.  Github is particularly useful for working on projects collaboratively.  The way it works is a given project has a master version (or branch) and multiple people can pull that code from github, create new versions, additions, etc on their own computers, then push that version back to github and merge it with the master version.  This means that multiple people can add different features of the same project at the same time without getting in each others way or worry about the code they are working on being changed without them knowing.
+      </p>
       <p>
       See you next week!
       </p>
   </section>
 </main>
+
+</html>

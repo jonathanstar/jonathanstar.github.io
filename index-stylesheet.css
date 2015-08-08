@@ -40,9 +40,7 @@ p {
 
 }
 
-h1{
-	text-align: center;
-}
+
 
 h4 {
 	color:#FFBD7B;
@@ -196,9 +194,22 @@ a:hover {
 	width: 6.7em;
 	top: -1.1em;
 
+	text-align: center;
+
 	background-color: #402600;
 	color: #FFBD7B;
 }
-td {
-	text-align: center;
+#postbody p{
+	display: inline-block;
+	position: relative;
+
+	float: left;
+	left:auto;
+	top:auto;
+	width: auto;
+	height: auto;
+
+	text-align: auto;
+	text-indent: auto;
+
 }
