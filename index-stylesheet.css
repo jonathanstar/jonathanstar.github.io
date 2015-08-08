@@ -107,20 +107,76 @@ a:hover {
 	*/
 	color: black;
 }
-.footer .search {
+.search {
 
 	position:absolute;
 	color:black;
 
-	width:20%;
+	width:15%;
 	
-	top:-.7em;
-	left: 38%;
+	left: 80%;
+	top: -.4em;
 
-	/*
 	border: 1px solid black;
-	*/
-	height:2em;
+	background-color: #FFDFB0;
+	line-height: 1.5em;
+
+	
+	height:1.5em;
 
 }
+ .blogtopbar{
+ 	display: inline-block;
+	position: relative;
 
+	margin:5em,5em, 5em, 5em;
+	border: 2px dashed black;
+	padding: 1em;
+
+
+	height:2em;
+	width:90%;
+	top:-1em;
+	left:.1em;
+
+	padding-top: .5em;
+	padding-bottom: .5em;
+	border:2px solid black;
+
+	text-align: center;
+	line-height: 0em;
+
+	background-color: #402600;
+	border-radius: 0%;
+ }
+
+#posts {
+	display: inline-block;
+	position: relative;
+
+	border:2px solid black;
+
+	width: 20%;
+	height:25em;
+
+	left:10%;
+	top: -18em;
+
+	text-align: center;
+}
+
+#topics {
+	display: inline-block;
+	position: relative;
+
+	border: 2px solid black;
+	left:25%;
+	top: .5em;
+
+	height:25em;
+	width: 35%;
+
+}
+th {
+	text-align: center;
+}
