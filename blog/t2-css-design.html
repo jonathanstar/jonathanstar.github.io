@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Your page title here</title>
+  <meta charset="UTF-8">
+  
+  <link rel="stylesheet" type="text/css" href="../index-stylesheet.css">
+  
+</head>
+
+<main>
+
+  <div class="header">
+    <div class="blogtopbar">
+      <h4>
+        Blog
+      </h4>
+      <div class=search>
+        Search
+      </div>
+    </div>
+  </div>
+
+  <section>
+
+    <h1>DBC Technical Blog Post 2:  The Differences Between Relative, Absolute, and Fixed Positioning</h1>
+    <h2>August 9, 2015</h2>
+
+  </section>
+  <section id="postbody">
+    <p>
+          In this second DBC blog post, we are going to talk a bit about the differences between relative, absolute, and fixed postiioning.  This isn't really that intuitive and certainly can be troublesome, so hopefully this post will help.
+    </p>
+    <p>
+          The first thing to realize about positioning is that every html object is actually just a rectangle of pixels.  To see this, go ahead and create any object in html with a margin of 0 pixels.  When you have, add a border to what you created and you will see that (assuming that you haven't changed the border radius) the border is a rectangle.  This is a visual rendering of your new object.  The positioning of the element will determine where on the page that rectangle lives.  Sounds intuitive so far, right?
+    </p>
+    <p>
+          There are a few different kinds of positioning.  The first is static, which is also the default position of your object.  When you set up an html document, it gives each object a or default position.  For example, if you have have a couple of divs (with no styling) they will naturally seperate so as not to overlap each other.  The same can be said of headers.  Unfortunately they don't always seperate nicely, for example you may find your paragraphs go on top of divs and or other elements in seemingly random places around the page.  To combat this we have our other types of positioning.
+    </p>
+    <p>
+          Relative positioning is the first kind of positioning and maybe the most common.  Setting an objects position to relative means that the commands you give to explicitly manipulate that object's position will move the object relative to its default position.  For example, if I write left:-20px; in my css stylesheet (for that object/tag) then my object will render exactly 20px to the left of its default position.
+    </p>
+    <p>
+          Absolute positioning allows you to position an object not with respect to its default position, but rather relative to the closest parent element that has relative positioning.  If there is no parent element with relative positioning then absolute positioning allows you to position an object relative to the entire html document (the page). So if I have an object with a parent that has relative positioning and I set the object left: 20px; then the object will move 20px to the right of the upper-left corner or the parent element.  In other words I control exactly where my object is with respect to the parent.
+    </p>
+    <p>
+          Fixed positioning is the last type of positioning and is fairly straitforward conceptually.  Basically fixed positioning means fixed relative to your browser window.  So if I want a button to always be on the upper right side of the page, I can use fixed positioning and no matter how much I scroll, that button will stay there.  This can create some problems though as that button can accidently cover up content that I want to be able to see.
+    </p>
+    <p>
+          Thanks for reading, and see you next week.
+    </p>
+  </section>
+</main>
+
+</html>
