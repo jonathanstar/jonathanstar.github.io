@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Your page title here</title>
+  <meta charset="UTF-8">
+  
+  <link rel="stylesheet" type="text/css" href="../index-stylesheet.css">
+  
+</head>
+
+<main>
+
+  <div class="header">
+    <div class="blogtopbar">
+      <h4>
+        Blog
+      </h4>
+      <div class=search>
+        Search
+      </div>
+    </div>
+  </div>
+
+  <section>
+
+    <h1>DBC Post 3:  Arrays and Hashes</h1>
+    <h2>August 15, 2015</h2>
+
+  </section>
+  <section id="postbody">
+    <p>
+          Arrays and hashes are two of the most common and useful data structures available to programmers.  Each one has its own uses and its own limitations.
+    </p>
+    <p>
+        Arrays are ordered collections of objects.  You can visualize an array as a long rectangular box of memory that is divided into equal subsections.  Each subsection represents the where in memory your computer is storing the actual items (called the elements) of your array, and each subsection is assigned its own index.  To make this clearer, take a look at the picture below.
+    </p>
+
+    <img src="https://cgi.csc.liv.ac.uk/~frans/OldLectures/COMP101/week9/array.gif89"/>
+
+    <p>
+
+        Arrays are useful for many reasons.  First and formost, they allow you to store and retrieve elements in constant time.  In ruby you can retrieve elements as follows:  array[index].  Because arrays are ordered, they lend themselves to sorting, although this is a new topic entirely.
+          
+    </p>
+    <p>
+        Hashes are essentially large collections of key-value pairs.  This can be useful because it allows you to retrieve information without needing to remember exactly at what index it is stored.  For example, I could have a key called "Jon Star" that is associated specifically with an object that contains information about me.  This way whenever I need information about me, I can find it using just my name.  The great thing about hash functions 
+    </p>
+    <p>
+        The way that hashes work are actually quite interesting.  A hash has some number of buckets of memory in which information is stored.  You can think of these buckets as just an array in which the hash stores stuff.  When you create a new key value pair, the hash uses a function that takes information about the key as its inputs (the literal letters, sometimes the time of day that the key was created, etc) and spits out a very long number.  Then the function does modular math (depending on the number of buckets in the hash) and outputs a bucket that is associated with the key.  Essentially this function, called the hash function, takes an infinite number of potential imputs and translates them to a finite number of outputs.  Cool, right?
+    </p>
+
+        <img src="">
+
+    <p>
+        Sometimes two keys will be assigned to the same bucket.  In this case, the two are stored in an array inside the bucket.  This is called a collision.  If too many keys are stored in the same bucket you suddenly find yourself dealing with the same limitations as you would if you just used arrays and didn't bother with hashes at all.  The trick to good hashes, therefore, is to use a hash function that distributes information into buckets as easily as possible and avoids collisions.
+    </p>
+    <p>
+        Hashes are extremely fast, but they are only able to operate so efficiently because they give up some of the structure built into things like arrays.  This means, for example, that you cannot sort a hash in the same way as you could an array.  Both are extremely useful tools with their own applications, which is a topic that I expect to dig into more as this course goes on. 
+    </p>
+
+      <p>
+        
+        That's all for now.  See you next week.
+
+      </p>
+
+  </section>
+</main>
+
+</html>
