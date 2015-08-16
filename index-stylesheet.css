@@ -52,7 +52,6 @@ table {
 code {
 	font-size: 12px;
 	background-color:white;
-	text-indent: 1.5em;
 }
 a:link {
 	color: blue;
@@ -190,7 +189,7 @@ a:hover {
 	height:25em;
 
 	left:10%;
-	top: -18em;
+	/*top: -18em;*/
 
 	text-align: center;
 }
