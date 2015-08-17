@@ -3,17 +3,12 @@ body {
 }
 div {
 
-	display:inline-block;
-
 	margin-top: 1em;
-	/*
-	border:2px solid black;
-	*/
+	
 	height: 5em;
 }
 
 img {
-	/*float: left;*/
 	position: relative;
 	display: inline;
 
@@ -110,6 +105,27 @@ a:hover {
 	
 	color: #FFBD7B;
 }
+
+.blog-footer {
+	display: block;
+	position: relative;
+
+
+	border: 1px solid black;
+
+	height: 1.5em;
+	width: 80%;
+	/*left:10%;*/
+	
+	top: -3em;
+
+	text-align: center;
+
+	
+	background-color: #402600;
+	
+	color: #FFBD7B;
+}
 .search {
 
 	position:absolute;
@@ -195,6 +211,10 @@ a:hover {
  	text-decoration: auto;
  }
 
+ .ib {
+ 	display: inline-block;
+ }
+
 #posts {
 	display: inline-block;
 	position: relative;
@@ -257,5 +277,17 @@ a:hover {
 
 	text-align: auto;
 	text-indent: auto;
+}
+#cover-img {
+	display: block;
+	position: relative;
+	top:2em;
+	left: 10%;
+}
+#cover-p {
+	display: block;
+	position: relative;
 
+	left: 9%;
+	top: -5em;
 }
