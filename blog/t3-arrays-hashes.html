@@ -44,7 +44,7 @@
 
     <p>
 
-        Arrays are useful for many reasons.  First and formost, they allow you to store and retrieve elements in constant time.  In ruby you can retrieve elements as follows:  array[index].  Because arrays are ordered, they lend themselves to sorting, although this is a new topic entirely.
+        Arrays are useful for many reasons.  First and formost, they allow you to store and retrieve elements in constant time.  Because arrays are ordered, they lend themselves to sorting, although this is a new topic entirely.
           
     </p>
     
@@ -86,7 +86,7 @@
         Hashes can be useful because they allow you to retrieve information without needing to remember exactly at what index it is stored.  For example, I could have a key called "Jon Star" that is associated specifically with an object that contains information about me.  This way whenever I need information about me, I can find it using just my name.  The great thing about hash functions 
     </p>
     <p>
-        The way that hashes work are actually quite interesting.  A hash has some number of buckets of memory in which information is stored.  You can think of these buckets as just an array in which the hash stores stuff.  When you create a new key value pair, the hash uses a function that takes information about the key as its inputs (the literal letters, sometimes the time of day that the key was created, etc) and spits out a very long number.  Then the function does modular math (depending on the number of buckets in the hash) and outputs a bucket that is associated with the key.  Essentially this function, called the hash function, takes an infinite number of potential imputs and translates them to a finite number of outputs.  Cool, right?
+        The way that hashes work are actually quite interesting.  A hash has some number of buckets of memory in which information is stored.  You can think of these buckets as just an array in which the hash stores stuff.  When you create a new key value pair, the hash uses a function that takes information about the key as its inputs (the literal letters, sometimes the time of day that the key was created, etc) and spits out a very long number.  Then the function does modular math (depending on the number of buckets in the hash) and outputs a bucket that is associated with the key.  Essentially this function, called the hash function, takes an infinite number of potential inputs and translates them to a finite number of outputs.  Cool, right?
     </p>
       <figure>
         <img class="image-center-block" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Hash_table_3_1_1_0_1_0_0_SP.svg/630px-Hash_table_3_1_1_0_1_0_0_SP.svg.png" style="width:30%;">
