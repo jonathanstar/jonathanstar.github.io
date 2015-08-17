@@ -89,17 +89,15 @@ a:hover {
 	
 	position: relative;
 
-
 	border: 1px solid black;
 
 	height: 1.5em;
-	width: 80%;
+	width: 75%;
 	left:10%;
 	
-	top: -3em;
+	bottom: 10em;
 
 	text-align: center;
-
 	
 	background-color: #402600;
 	
@@ -107,20 +105,18 @@ a:hover {
 }
 
 .blog-footer {
-	display: block;
-	position: relative;
-
+	/*display: block;*/
+	position: fixed;
 
 	border: 1px solid black;
 
 	height: 1.5em;
-	width: 80%;
-	/*left:10%;*/
+	width: 75%;
+	left:10%;
 	
-	top: -3em;
+	bottom: 1em;
 
 	text-align: center;
-
 	
 	background-color: #402600;
 	
