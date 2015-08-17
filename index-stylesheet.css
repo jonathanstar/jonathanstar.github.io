@@ -179,6 +179,22 @@ a:hover {
  	text-align: center;
  }
 
+ a.plain-link:link {
+ 	color: #FFBD7B;
+ 	text-decoration: none;
+ }
+
+ a.plain-link:visited {
+ 	color: #FFBD7B;
+ 	text-decoration: auto;
+ }
+
+  a.plain-link:hover {
+ 	/*color: #1B6321;*/
+ 	color: #FFBD7B;
+ 	text-decoration: auto;
+ }
+
 #posts {
 	display: block;
 	position: relative;
