@@ -196,7 +196,7 @@ a:hover {
  }
 
 #posts {
-	display: block;
+	display: inline-block;
 	position: relative;
 
 	border:2px solid #402600;
@@ -205,7 +205,7 @@ a:hover {
 	height:25em;
 
 	left:10%;
-	/*top: -18em;*/
+	top: -15em;
 
 	text-align: center;
 }
@@ -216,8 +216,8 @@ a:hover {
 	/*
 	border: 2px solid black;
 	*/
-	left:23%;
-	top: .5em;
+	left:27%;
+	top: .3em;
 
 	height:25em;
 	width: 43%;
