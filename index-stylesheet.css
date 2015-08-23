@@ -46,8 +46,21 @@ table {
 }
 code {
 	font-size: 12px;
-	background-color:white;
+	/*background-color:white;*/
+	white-space: pre;
 }
+code span{
+	background-color: white;
+}
+/*div code {
+	font-size: 12px;
+	background-color:white;
+	white-space: pre;
+}*/
+/*pre {
+	display: inline;
+	position:relative;
+}*/
 a:link {
 	color: blue;
 }

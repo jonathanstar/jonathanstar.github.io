@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Your page title here</title>
+  <meta charset="UTF-8">
+  
+  <link rel="stylesheet" type="text/css" href="../index-stylesheet.css">
+  
+</head>
+
+<main>
+
+  <div class="header">
+    <div class="blogtopbar">
+      <h4>
+        Blog
+      </h4>
+      <div class=search>
+        Search
+      </div>
+    </div>
+  </div>
+
+  <section>
+
+    <h1>Enumerable, Enumerators, and the Cycle method</h1>
+    <h2>August 22, 2015</h2>
+
+  </section>
+  <section id="postbody">
+    <p>
+          The Enumerable module is basically a chunk of code that contains useful methods and information for iteration.  All of the container methods that we know and love (such as <a href="http://jonathanstar.github.io/blog/t3-arrays-hashes.html">arrays and hashes</a>) make use of enumerable for iteration.  There are also Enumerator objects, which are seperate, external objects that also contain information about how to iterate through a collection.  We will briefly touch on each of these and why they are useful while we explain the cycle method.
+    </p>
+    <p>
+        The key to Enumerable (and Enumerators for that matter) is the each method.  Every method uses each in its implementation.  Thus, you must define an each method in order to use the Enumerable module.  If you use an Enumerable method without doing so, that method will call an each method that does not exist, and you will get an error.  Here is the bare minimum that you need to use Enumerable without generating an error: 
+
+        <code><span>
+        class ClassName
+          include Enumerable
+          def each
+          end
+        end </span>
+        </code>
+        <br>
+        Of course this means that any Enumerable methods we may want will be relying on an empty method work, which is no good.  What we really want is for each to do what we would expect:  to iterate through each of whatever we are looking at.  To take an oft-used example, suppose we had a class Colors that included "red", "green", "blue", "yellow", "purple", "black".  Our class and each method might look like this:
+
+        <code><span>
+        class Colors
+          include Enumerable
+          def each
+            yield "red"
+            yield "green"
+            yield "blue"
+            yield "yellow"
+            yield "purple"
+            yield "black"
+          end
+        end</span></code>
+        <br>
+        Now when we call <code>colors.each{|x| puts x}</code>, everytime the computer sees the <code>yield</code> keyword it will use that line in the block (the piece of code inside the curly brackets.  In this case, it will print each color as a string on its own line. 
+    </p>
+    <p>
+        Now that we know how to include Enumerable into our classes and define an each method, we can use the large amount of functionality that Enumerable provides us.  These include methods that allow us to iterate in new ways (for example iterate in reverse) or use iteration in their function (for example if we wish to choose all colors that satisfy a certain criteria we can use the select function).  Here is a list of some useful enumerable methods: <br><br>
+        
+        :all?, :any?, :chunk, :collect, :collect_concat, :count, :cycle,
+    :detect, :drop, :drop_while, :each_cons, :each_entry, :each_slice,
+    :each_with_index, :each_with_object, :entries, :find, :find_all, 
+    :find_index, :first, :flat_map, :grep, :group_by, :include?, :inject, 
+    :map, :max, :max_by, :member?, :min, :min_by, :minmax, :minmax_by, 
+    :none?, :one?, :partition, :reduce, :reject, :reverse_each, :select, 
+    :slice_before, :sort, :sort_by, :take, :take_while, :to_a, :zip
+        <br><br><br>
+    </p>
+    <p>
+        Lots of classes inculde Enumerable, and so include these methods.  For example, Arrays and Hashes both include Enumerable, but they also have their own built in functionality (they overwrite certain methods) that make the methods slightly different.  For example, when you use the select method on arrays you get back elements of the array while when you use it on hashes you get back key/value pairs.
+    </p>
+    <p>
+        Now let's talk about the cycle method.  We call the cycle method essentially yeilds to all elements in a loop.  This is similar to the way we defined the each method, except the cycle method goes forever.  The full syntax for cycle is as follows: <code><span>Colors.cycle(integer_parameter){ |i| block-instructions_here}</span></code>
+        Calling <code><span>Colors.cycle(1){|i| puts i}</span></code> would cycle through 1 time and print out each color on its own line.  In essence, using the parameter 1 in the cycle method is equivalent to using the each method.  If we were to use the parameter 2, however, the computer would cycle through twice, each time passing each element to the block and in our case printing out colors on their own line.  If we pass in no parameter, we cycle infinitely.
+    </p>
+    <p>
+        What if we wanted to keep track of which color we are on?  What if we don't want to cycle through all at once?  This is where an Enumerator comes in handy.  As we said earlier, Enumerators are objects that contain information about how to iterate through things.  They are external to the class, and keep so keep track of information seperately.  In order to create an enumerator, we can simply use the cycle method with no parameter and no block:  <code><span>our_enumerator=Colors.cycle</span></code>.  Because our_enumerator is an object of its own, independent of the class, it contains its own information.  If we type <code><span>our_enumerator.next</span></code> we get "red" and if we type <code><span>our_enumerator.next</span></code> again we get "green".  That is to say, the Enumerator object that we created, our_enumerator, remembers where in the cycle we are.  It is also important to note that <code><span>Colors.cycle</span></code> creates an entirely new enumerator object, or in other words the boolean expression <code><span>Colors.cycle==Colors.cycle</span></code> would return false.
+    </p>
+    <p>
+          That's all for now.  See you next time.
+     <br><br><br>
+    </p>
+  </section>
+
+  <section>
+    
+    <div class="blog-footer">
+      <a class="plain-link" href="http://jonathanstar.github.io/index.html">Home</a>
+    </div>
+
+  </section>
+</main>
+
+</html>
