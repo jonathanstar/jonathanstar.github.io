@@ -61,6 +61,57 @@ code span{
 	display: inline;
 	position:relative;
 }*/
+
+form {
+	display:block;
+	position: relative;
+
+	left:10%;
+	padding:50px,0,50px,50px;
+	/*border:1px solid black;*/
+	width: 30%;
+}
+form h2 {
+	font-family: Tahoma, "Trebuchet MS", sans-serif  ;
+	color: black;
+}
+form p{
+
+	float:none;
+	top:0;
+	left: 0;
+	height:auto;
+	width: auto;
+
+	display: block;
+	position: relative;
+}
+
+input, textarea {
+	padding: 5px;
+	border: 1px solid #402600;
+	box-shadow: 10px;
+}
+
+textarea {
+	width:350px;
+	height: 150px;
+	max-width: 800px;
+	max-height: 250px;
+	line-height: 15px;
+}
+
+.submit input {
+	width: 100px;
+	height:40px;
+	background-color: #402600;
+	border-radius: 3px;
+	color: #FFBD7B;
+	font-style: bold;
+	font-size: 15px;
+	font-family:  "Trebuchet MS", Verdana, sans-serif;
+}
+
 a:link {
 	color: blue;
 }
@@ -70,6 +121,25 @@ a:visited {
 a:hover {
 	color: #1B6321;
 }
+
+.blank {
+	margin-top: 0;
+	height:;
+	display: inline-block;
+	position: relative;
+	float: none;
+
+	top:0;
+	left:0;
+
+	border:;
+	height:;
+	width:;
+
+	color:;
+	font-family:;
+}
+
 .topbar {
 	display: inline-block;
 	position: relative;
@@ -299,4 +369,11 @@ a:hover {
 
 	left: 9%;
 	top: -5em;
+}
+
+#contact {
+	position: relative;
+
+	left: 10%;
+	top: 10px;
 }
