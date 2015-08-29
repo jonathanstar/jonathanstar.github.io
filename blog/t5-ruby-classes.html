@@ -166,9 +166,11 @@ class Pokemon
   def is_attacked(attack_array)
 
     if @type.weak.eql?(attack_array[1].name)
+      puts "It's super effective!"
       puts "#{@name} took #{(attack_array[0]*1.5).to_i} damage"
       @health -= (attack_array[0]*1.5).to_i
     elsif @type.strong.eql?(attack_array[1].name)
+      puts "It's not very effective."
       puts "#{@name} took #{(attack_array[0]/1.5).to_i} damage"
       @health -= (attack_array[0]/1.5).to_i
     else
