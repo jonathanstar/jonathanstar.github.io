@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Your page title here</title>
+  <meta charset="UTF-8">
+  
+  <link rel="stylesheet" type="text/css" href="../index-stylesheet.css">
+  
+</head>
+
+<main>
+
+  <div class="header">
+    <div class="blogtopbar">
+      <h4>
+        <a class="plain-link" href="http://jonathanstar.github.io/blog/index.html">Blog
+       </a>
+      </h4>
+      <div class=search>
+        Search
+      </div>
+    </div>
+  </div>
+
+  <section>
+
+    <h1>Post title</h1>
+    <h2>Date</h2>
+
+  </section>
+  <section id="postbody">
+    <p>
+          In programming we are often confronted with the problem of modelling real world phenomena.  Object-oriented programming (OOP) addresses this problem wonderfully by allowing programmers to organize data into objects, which keep track or data in such a way as to mimic real and virtual objects of any kind you choose.  Objects in Ruby and other OOP languages, like real world objects, have various attributes,abilities, and states (think of them as non-permanent attributes) that make them unique.  This is true of even very simple objects.  For example, a toaster has a color, a height, and a type of design.  It has the ability to toast things and to beep when it is done.  It also has different states:  is it plugged in or not?  Is there food inside the toaster?  Is it currently toasting something?  OOP languages like Ruby give programmers the ability to store all the necessary data for describing a toaster in one place.
+    </p>
+    <p>
+          While each specific toaster may be unique, all toasters have certain similarities.  This is where classes come in.  Classes are a blueprints for creating objects.  Each object in Ruby comes from exactly one class, which (together with a few arguments) determines the exact structure of an object when it is created.  For example, when we create a toaster we need to use a toaster class, which tells us what types of data that toaster will hold initially.  Specifically, the toaster class defines exactly what variables and methods a toaster will internally keep track of and be able to use.  These internal variables and methods are precisely the attributes, abilities, and states that we covered earlier.  Consider a simple toaster class:
+    </p>
+          <div class="code-block">
+          <code>
+class Toaster
+
+  attr_reader :color
+  attr_reader :plugged_in
+  attr_writer :plugged_in
+
+  def initialize(color)
+    @color=color
+    @plugged_in =false
+    @type="old fashioned"
+  end
+
+  def plug_in
+    @plugged_in= true
+  end
+
+  def toast
+    puts "toasting"
+  end
+end
+
+toaster=Toaster.new("black")
+
+puts toaster.plugged_in 
+# => false
+toaster.toast 
+# => toasting
+toaster.plug_in 
+p toaster.plugged_in
+# => true
+toaster.plugged_in=false
+p toaster.plugged_in
+# => false
+puts toaster.color
+# => black
+puts toaster.type
+# => toaster.rb:36:in `<main>': undefined method `type' for #<Toaster:0x007faaab032a70> (NoMethodError)
+          </code>
+          </div>
+    <p>
+          In this example, we can see that the toaster has various attributes: <code>@color</code> states: <code>@plugged_in</code>, and abilities: <code>toast</code> and <code>plug_in</code>.  We create the object toaster by calling the <code>.new</code> method on the <code>Toaster</code> class.  All Ruby classes automatically include a <code>.new</code> method, which creates a new object and automatically calls the <code>initialize()</code> method.  Initialize allows us to feed the class information in the form of parameters (in this case the color of the toaster).  This class only takes one parameter to create an object, but we could have included more if we chose.  For example, we could have told the class to accept a <code>type</code> parameter by making the first line of our initialize method <code>def initialize(color, type)</code>.  
+    </p>
+    <p>
+
+          Notice how some variables have names that begin with <code>@</code> symbols?   This means that they are instance variables, or internal to a specific instance of this class (that is to say internal to the specific object that we created).  Instance variables can be read, changed, or used inside a class as much as we like (look at the <code>plug_in</code> method) but cannot be accessed at all outside of the class unless we specifically add the functionality to do so.  This helps prevent information inside classes from being accidently changed by some unrelated bit of code.  If we would like to be able to see the value of a variable while outside the class, we can use <code>attr_reader :variable</code>, as we did with color in this example.  If we would like the ability to change that value outside of a class, we use <code>attr_writer</code>.  If we want to do both, we can use <code>attr_accessor</code>.  Take a look at the code above.  We can both view and change the <code>toaster.plugged_in</code> variable, and we can view <code>toaster.color</code>, but when we try to view <code>toaster.type</code> we get an error message.  The same would happen if we tried to assign <code>toaster.color</code> a new value.  This seperation between code inside of and outside of an object, along with the ability to control what is and is not accessible is key to many programs.
+    </p>
+    <p>
+          The concept of an object is absolutely central to OOP languages.  In Ruby, just about everything you use is a type of object.  This is true for very basic things like numbers and booleans as well as for more complicated things such as toasters.  The functionality of OOP languages like Ruby stems from the ability to send messages to objects and for objects to interact with each other.  In order to demonstrate this, check out the pokemon game I've written bellow.
+    </p>
+
+    <div class="code-block">
+      <code>
+
+class PokeBattle
+
+  def initialize(pokemon_1, pokemon_2)
+    
+    @pokemon_1 = pokemon_1
+    @pokemon_2 = pokemon_2
+    @pokemon=[@pokemon_1, @pokemon_2].cycle
+  end
+
+  def play
+
+    # cycles through the pokemon and has one attack the other depending on whose turn it is.
+    while !game_over?
+      current=@pokemon.next
+      @pokemon.peek.is_attacked(current.attack)
+    end
+
+  end
+
+  # returns true if the game is over, false otherwise
+  def game_over?
+
+    if @pokemon_1.health <= 0
+      puts "#{@pokemon_1.name} fainted.  #{@pokemon_2.name} wins the battle!"
+      return true
+    elsif @pokemon_2.health <= 0
+      puts "#{@pokemon_2.name} fainted.  #{@pokemon_1.name} wins the battle!"
+      return true
+    else
+      false
+    end
+
+  end
+
+end
+
+class Pokemon
+
+  attr_reader :name, :type, :moves, :health
+
+  def initialize(name, type, moves)
+    @name = name
+    @type = type
+    @moves = moves
+    @health = 100
+  end
+
+  # Asks the user for input about what type of attack to use.  Returns an array with a damage amount and a Type.  
+  # If the user gives an incorrect input, the method asks the user for a correct input and calls itself again.
+  def attack
+
+    puts "Choose a move for #{@name} and type in the corresponding integer: "
+    pl
+    @moves.keys.each_with_index{|key, index| puts "#{index+1})  #{key}"}
+    pl
+
+    choice = gets.chomp.to_i
+    choice_key = @moves.keys[choice-1]  
+
+    if 0 < choice && choice < 5
+      puts "#{@name} used #{choice_key}"
+      return @moves[choice_key]
+    else
+      puts "That is not an option.  Please enter an integer 1-4."
+      3.times{pl}
+      attack
+    end
+
+  end
+
+  # Takes an array containing a damage amount and a type (the output of the attack function) 
+  # and modifies the pokemon's health accordingly.  Puts out the amount of damage done and 
+  # health of the pokemon
+
+  def is_attacked(attack_array)
+
+    if @type.weak.eql?(attack_array[1].name)
+      puts "#{@name} took #{(attack_array[0]*1.5).to_i} damage"
+      @health -= (attack_array[0]*1.5).to_i
+    elsif @type.strong.eql?(attack_array[1].name)
+      puts "#{@name} took #{(attack_array[0]/1.5).to_i} damage"
+      @health -= (attack_array[0]/1.5).to_i
+    else
+      puts "#{@name} took #{attack_array[0]} damage"
+      @health -= attack_array[0]
+    end
+
+    puts "#{@name} has #{@health} health remaining."
+    pl
+
+  end
+
+  def pl
+    puts "-------------------"
+  end
+
+end
+
+class Type
+  attr_reader :strong, :weak, :name
+  
+  def initialize(name, strong, weak)
+    @name = name
+    @strong = strong
+    @weak = weak
+  end
+
+end
+
+# some types
+water=Type.new("water", "fire", "grass")
+fire=Type.new("fire", "grass", "water")
+normal=Type.new("normal", "none", "none")
+
+# some moves
+blastoise_moves= {
+      "Tackle" => [15, normal],
+      "Surf" => [30, water],
+      "Body-Slam" => [35, normal],
+      "Hydro-Pump" => [40, water]
+    }
+charizard_moves= {
+      "Tackle" => [15, normal],
+      "Flamethrower" => [40, fire],
+      "Slash" => [20, normal],
+      "Surf" => [30, water]
+    }
+
+# create some pokemon
+blastoise = Pokemon.new("Blastoise", water, blastoise_moves)
+charizard = Pokemon.new("Charizard", fire, charizard_moves)
+
+# create the game and play it.
+game=PokeBattle.new(blastoise, charizard)
+game.play
+
+      </code>
+    </div>
+    <p>
+        As you can see our pokemon game utilizes three classes:  <code>PokeBattle</code>, <code>Pokemon</code>, and <code>Type</code>.  Note that we can store objects as instance variables inside an object: we store a type object as an attribute of a pokemon, and two different pokemon objects as attributes of a game.  We use instance variables, like <code>@health</code> in the Pokemon class, to keep track of the state of our objects.  The <code>PokeBattle</code> class has a method <code>game_over?</code> that repeatedly checks whether or not <code>@health</code> has gotten too low.  We also used methods inside the <code>Pokemon</code> class like <code>attack</code> and <code>is_attacked</code> to allow pokemon objects to manipulate each others data, or put another way to send and receive messages.
+    </p>
+    <p>
+        This game is still very basic.  We only have 2 pokemon per side, but one could easily imagine a Trainor class, which holds an array of Pokemon as instance variables.  We could also add item classes, and methods that let trainors use items or run away.  We could add stats to each pokemon as instance variables and use those stats to determine the probability of whether or not an attack successfully hit its target.  We could allow trainors to run away, or to switch pokemon mid-battle.
+    </p>
+    <p>
+        As you can see, objects and classes in Ruby (and other OOP languages) are powerful tools that we can use model all sorts of wonderful behavior.  Thanks for reading.  See you next week.
+     <br><br><br>
+    </p>
+  </section>
+
+  <section>
+    
+    <div class="blog-footer">
+      <a class="plain-link" href="http://jonathanstar.github.io/index.html">Home</a>
+    </div>
+
+  </section>
+</main>
+
+</html>

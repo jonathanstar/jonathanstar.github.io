@@ -46,21 +46,12 @@ table {
 }
 code {
 	font-size: 12px;
-	/*background-color:white;*/
+	background-color:white;
 	white-space: pre;
 }
 code span{
 	background-color: white;
 }
-/*div code {
-	font-size: 12px;
-	background-color:white;
-	white-space: pre;
-}*/
-/*pre {
-	display: inline;
-	position:relative;
-}*/
 
 form {
 	display:block;
@@ -292,6 +283,22 @@ a:hover {
 
  .ib {
  	display: inline-block;
+ }
+
+ .code-block{
+ 	display: inline-block;
+ 	position: relative;
+
+ 	margin-top: 0;
+ 	height: auto;
+
+ 	background-color: white;
+ 	border: 2px solid black;
+
+ 	left: 5%;
+ 	width: 80%;
+
+ 	padding:10px, 0, 10px, 20px;
  }
 
 #posts {
