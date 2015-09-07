@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Functional Programming</title>
+  <meta charset="UTF-8">
+  
+  <link rel="stylesheet" type="text/css" href="../index-stylesheet.css">
+  
+</head>
+
+<main>
+
+  <div class="header">
+    <div class="blogtopbar">
+      <h4>
+        <a class="plain-link" href="http://jonathanstar.github.io/blog/index.html">Blog
+       </a>
+      </h4>
+      <div class=search>
+        Search
+      </div>
+    </div>
+  </div>
+
+  <section>
+
+    <h1>Functional Programming</h1>
+    <h2>September 6, 2015</h2>
+
+  </section>
+  <section id="postbody">
+    <p>
+          So far in this blog we have really only talked about object oriented programming and object oriented languages in general (specifically Ruby) but in this post we are going to take a quick detour into the world of functional programming (FP).  If you are new to computer science you might be surprized to learn that there are lots of different types of programming, including imperative, procedural, declarative, functional, event driven, and of course object oriented.  Each of these are fairly extensive topics, so be warned that we will barely scratch the surface in this post. 
+    </p>
+    <p>
+          Even if you don't know it, you have already learned a ton about OOP languages from my post on <a href="http://jonathanstar.github.io/blog/t5-ruby-classes.html">Objects, Classes, and Pokemon</a> (and if you haven't read it yet, please take a look).  OOP languages give us very powerful tools to model real world problems because they couple data and behavior into objects.  A pokemon may have data that is associated with it (like its health and type) as well as behavior associated with it (like the ability to attack other pokemon).  Very often, the behavior can effect the data, for example a Pokemon might be able to heal, which changes the data associated with its health.  If this all sounds perfectly natural and obvious to you its because it is--one of the main advantages of OOP languages is that they are so damn natural.  Natural as this might seem, not all programming languages work this way.
+    </p>
+    <p>
+          The first functional programming language was created in the late 1950's (about ten years before the formal concept of objects were introduced in OOP languages.  functional programming represents an entirely different paradigm then object oriented programming.  Perhaps the key difference is that functional programming forces a seperation between data and behavior in ways that are completely antithetical to an object oriented world view.  In some respects, this seperation is also natural--just consider the English language, which we break down into nouns, verbs, and adjectives.  In functional programming, unlike in OOP, data is immutable.  One way to think about this is to think about all variables in FP as similar to Ruby constants.  They are simply stored values and they do not change.  These variables are much more rigid than OOP variables (like the health of a pokemon) which might change their value/content at any point.
+    </p>
+    <p>
+          Behavior or methods/functions in FP languages, like data, are more rigid then their OOP counterparts.  In functional programming a function is just that:  a function.  That is to say that FP functions take inputs and map them to an outputs, and nothing more.  Functions in FP languages can have as many inputs as necessary (and these inputs can be other functions) but they can't multitask the way that OOP methods can.  That is to say that what matters with respect to FP functions are inputs and outputs, and nothing in between.  Functions are really at the core of FP languages, and the central activity of FP programming is to build more functions that do more stuff.  By contrast, the central activity of OOP programming is really to facilitate message sending between objects in such a way as to get things done.
+    </p>
+    <p>
+          So when and why should we use functional programming?  Functional programming is really useful when we have fixed data or data structures and we need to do many things with that data.  The most common example is a database, where we might have a certain set of data but tons of different and unpredictable types of queries to use on that database.
+    </p>
+    <p>
+          Now our database may change in the future, and this is one place where OOP can be very useful.  Luckily you don't necessarily have to rely on one or another.  A lot of languages are multi-paradigm, and allow for aspects of multiple types of programming.  One compromixe option might be to write object oriented programs in a functional programming style, using lots of constants and keeping data structures static as much as possible.
+    </p>
+
+    <p>
+          That's all for now.  Told you we would barely scratch the surface.  See you next time!
+     <br><br><br>
+    </p>
+  </section>
+
+  <section>
+    
+    <div class="blog-footer">
+      <a class="plain-link" href="http://jonathanstar.github.io/index.html">Home</a>
+    </div>
+
+  </section>
+</main>
+
+</html>
