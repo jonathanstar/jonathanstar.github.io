@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Your page title here</title>
+  <meta charset="UTF-8">
+  
+  <link rel="stylesheet" type="text/css" href="../index-stylesheet.css">
+  
+</head>
+
+<main>
+
+  <div class="header">
+    <div class="blogtopbar">
+      <h4>
+        <a class="plain-link" href="http://jonathanstar.github.io/blog/index.html">Blog
+       </a>
+      </h4>
+      <div class=search>
+        Search
+      </div>
+    </div>
+  </div>
+
+  <section>
+
+    <h1>Post title</h1>
+    <h2>Date</h2>
+
+  </section>
+  <section id="postbody">
+    <p>
+          Big O notation describes the limiting behavior of a function as it pertains to the function's growth rate.  So for example, if we have a function <span class="italics">f(n)=n^2+n-5</span>, when we use big O notation we are looking at how the function behaves when <span>n</span> approaches certain values, usually infinity.  In computer science, big O notation is used to measure the efficiency of algorithms and describe how much space/time they take up as your inputs get larger and larger.
+    </p>
+    <p>
+          When we measure the efficiency of an algorithm in computer science, we are usually talking about how many basic operations the computer must do to compute the answer.  For example consider the following code:
+    </p>
+
+          <div class="code-block"><code>
+          def constant_operations
+            x=3
+            x*=5
+            print x
+          end
+          </code></div>
+    <p>
+          This includes only a few basic operations:  creating a new variable x, storing 3 as the value of x, multiplying x by 5 and storing this as the new value of x.  No matter what, executing <code>constant_operations</code> method always requires the computer to perform the same number of basic operations.  We call this constant time and in big O notation we denote the efficiency of <code>constant_operations</code> to be <span class="italics">O(1)</span>.  If we wanted to model the amount of time (read: number of basic operations performed by your computer) as a function, it might look like <span class="italics">T(n)=5</span> where <span class="italics">n</span> refers to the size of the input and <span class="italics">T(n)</span> the amount of time it takes to run <code>constant_operations</code>.  Constant time is generally the best case scenario for any algorithm, because as you deal with larger and larger inputs, the time it takes to run your code remains the same.  For example, accessing an element in an <a href="http://jonathanstar.github.io/blog/t3-arrays-hashes.html">array</a> can be done in constant time.  This is true even as the length of your array goes to infinity.  To see an example of something that isn't constant time, consider the following code.
+    </p>
+
+          <div class="code-block"><code>
+          def single_loop(array)
+            new_array=[];
+            i=0;
+            for element in array  
+              new_array[i]=element*2
+              puts element
+              i+=1
+            end
+              p new_array
+          end
+          </code></div>
+     <p>
+          Let's count how many operations are in this code.  First we have operations to create and assign values to the variables <code>new_array</code> and <code>i</code>, as well as to print out <code>new_array</code> at the end of the method.  We can perform these tasks in constant time, so rather then bother counting directly, lets just say that it takes <span class= "italics">k</span> steps to perform.  Now we need to look at the loop.  The amount of time that it takes to run the code in the for loop depends entirely on the length of <code>array</code>.  When we go through the for loop, we need to perform the following operations:  multiply <code>element</code> by 2, store the value of <code>element*2</code> in <code>new_array[i]</code>, <code>puts</code> out <code>element</code>, and increment <code>i</code> by 1.  Notice anything?  Running through the code in the for loop once takes constant time!  So rather then count exactly how many operations the computer performs, lets just say that it takes us <span class="italics">c</span> operations to run it.  Of course by using the for loop, we must run this code <code>array.length</code> times.  Let <span class="italics">n</span> equal the value of <code>array.length</code>, and we can now express the time that it takes to run <code>single_loop</code> (<span class="italics">T(n)</span>) as a function of the length of our array (<span class="italics">n</span>).
+          <br><br>
+          <span class="italics">T(n)=cn+k</span>.
+          <br><br>
+          Consider the difference between <code>single_loop</code> and <code>constant_operations</code> As <span class="italics">n</span> grows towards infinity, <code>single_loop</code> takes infinitely more steps (time) to run than <code>constant_operations</code>. <span class="italics">c</span> and <span class="italics">k</span> become insignificant by comparison as the term with the highest exponent dominates all other terms and constants when <span class="italics">n</span> grows sufficiently large.  For this reason we say that <code>single_loop</code> runs in <span class="italics">O(n)</span>, or linear time.  Suppose we were to create a similar method which used a double for loop instead of a single one?  Consider the following completely useless code.
+          <br>
+    </p>
+
+ <div class="code-block"><code>
+          def double_loop(array)
+            new_array=[];
+              for index in (0...array.length)
+                array[index]*=2;
+                new_array.push(array[index])
+                  for element in array  
+                    print element
+                  end
+                  puts ""
+              end
+                  p new_array
+          end
+
+          double_loop([1,2,3,4,5])
+          </code></div>
+
+    <p>
+          This code has <span class="italics">a</span> operations inside the inner for loop, <span class="italics">b</span> operations inside its outer for loop, and <span class="italics">c</span> operations otherwise.  The code in the outer loop runs <span class="italics">n</span> times, and the code in the inner loop runs <span class="italics">n</span> times <span class="italics">n times</span> (or <span class="italics">n^2</span> times).  Modeling this as a function we get <br><br> <span class="italics">T(n)=an^2+bn+c</span>, <br><br> meaning that the method runs in <span class="italics">O(n^2)</span> or quadratic time.  
+    </p>
+
+    <p>
+          As you might guess, there are patterns to how efficient varous programs are with respect ot big-O notation.  If we had added another for loop inside the inner for loop, we would probably have gotten a program that runs with efficiency <span class="italics">O(n^3)</span>.  Some comon data structures like binary search trees run in logarithmic time, and if you combine them with loops you might get programs that run in <span class="italics">O(n log n)</span> or loglinear time.  Some programs that are much less efficient run in exponential time (<span class="italics">O(c^n)</span>), or worse, factorial time (<span class="italics">O(n!)</span>).
+    <br><br><br>
+    Thanks for reading.  See you next time.
+     <br><br><br>
+    </p>
+  </section>
+
+  <section>
+    
+    <div class="blog-footer">
+      <a class="plain-link" href="http://jonathanstar.github.io/index.html">Home</a>
+    </div>
+
+  </section>
+</main>
+
+</html>
