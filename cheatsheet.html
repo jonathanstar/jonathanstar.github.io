@@ -1,0 +1,39 @@
+<!Doctype <!DOCTYPE html>
+<html>
+<head>
+	<title>Enumerabe Cheatsheet</title>
+	<link rel="stylesheet" type="text/css" href="./cheatsheet-stylesheet.css">
+</head>
+<body>
+	<div class="header">
+			<h3>
+			<a href="http://jonathanstar.github.io/">Home</a>
+			</h3>
+	</div>
+
+	<div class="sheet">
+		<code><h4>Ruby Enumerator Methods</h4>
+  next				# moves pointer to next element of the enumerator, returns that object
+  peek   			# returns next object without moving pointer forward
+  rewind 			# rewinds enumeration to the beginning of the enumerator
+  size   			# returns the size
+  each_with_index		# takes a block like so enum.each_with_index{|element, index|}
+<h4>Ruby Enumerable Methods</h4>
+  all?/any?			# passes each element to a block, returns true if condition is satisfied for all/any elements respectively
+  collect/map			# runs block for every element and returns a new array with the results
+  count				# returns number of elements in collection
+  cycle(n=nil)			# runs block n times for each element, infinitely many if n=nil, returns an enumerator if no parameter is given
+  each_with_index		# takes a block like so enum.each_with_index{|element, index|}
+  find				# returns the first element for which block returns true
+  find_index			# returns index for the first value evaluated to be true in block
+  include?(obj)			# returns true if object is found, equality uses ==
+  partition			# returns two arrays, one with elements that the block evaluates to be true, the other false
+  reduce(sym)			# combines elements with a binary operation, specified by a symbol or block.
+  select 			# returns an array with all elements for which the block returns true
+  sort/sort_by			# sorts elements in accordance with the block: words.sort{|a,b| a<=>b}, words.sort_by{|word| word.length}
+		</code>
+
+	</div>
+
+</body>
+</html>

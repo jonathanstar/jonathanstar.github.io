@@ -1,0 +1,21 @@
+html, body {
+	overflow-x: hidden;
+}
+
+body {
+	background-color: black;
+}
+
+.header {
+	/*margin-left: -1000px;*/
+	padding: 0;
+	width: 100%;
+	background-color: gold;
+	text-align: center;
+}
+
+.sheet {
+	background-color: white;
+	height: 80%;
+	white-space: pre;
+}
