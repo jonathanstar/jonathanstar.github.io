@@ -155,7 +155,7 @@ a:hover {
 .header {
 	position:relative;
 	display:inline-block;
-	width:80%;
+	width:85%;
 	left:10%;
 	border:none;
 }
@@ -394,4 +394,11 @@ a:hover {
 
 	left: 10%;
 	top: 10px;
+}
+#resume {
+	display: block;
+	margin: auto;
+	height: 100%;
+	width: 80%;
+
 }
