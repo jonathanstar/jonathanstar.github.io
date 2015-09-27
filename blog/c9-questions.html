@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Questions</title>
+  <meta charset="UTF-8">
+  
+  <link rel="stylesheet" type="text/css" href="../index-stylesheet.css">
+  
+</head>
+
+<main>
+
+  <div class="header">
+    <div class="blogtopbar">
+      <h4>
+        <a class="plain-link" href="http://jonathanstar.github.io/blog/index.html">Blog
+       </a>
+      </h4>
+      <div class=search>
+        Search
+      </div>
+    </div>
+  </div>
+
+  <section>
+
+    <h1>Questions</h1>
+    <h2>September 27, 2015</h2>
+
+  </section>
+  <section id="postbody">
+    <p>
+          One very important skill in life is knowing how to ask good questions.  There are a few guidelines one can follow to improve their quality of questions: 
+          <br><br>
+          1)  Identify your problem.  If you don't identify your problem, you might end up asking for the wrong thing.  The purpose of your question might be unclear to the reader, or question might come off as rambling and vague, making responses to your questions unhelpful as a consequence.  Garbage in, garbage out.
+          <br><br>
+          2)  Be precise.  If you are precise about what you are asking, it will be easier for readers/listeners to respond to you with exactly what you need.  If it is a computer science question and you need to give an example of your code to put your question in context, do it!  Make sure your listender/reader has all of the necessary information to answer your question and make sure that there is no ambiguity to your question.
+          <br><br>
+          3)  Be concise.  Don't include too much unnecessary information.  Unnecesarry information in your question can turn a reader/listener off or prompt them to give you unneccessary information in their response.  It also gives readers/listeners an opportunity to "answer" your question without actually addressing/providing the information you need.
+          <br><br>
+          4)  Look to see if your question has been answered already.  If it is an internet or a forum question, look it up online before asking.  If you are meeting with someone who you might not normally have access to, don't waste your meeting asking about things that you could figure out easily on your own.  Be prepared before asking questions.
+          <br><br>
+          Now lets take a look at a real question on the DBC Purple Martins group chat and analyze it.
+  
+    <p>
+        <div class="code-block">
+          <code>
+            U2.W4: Print a Pretty Right Triangle (Release 6: Solve the problem another way)
+
+Just curious if anyone that's done this week's GPS already found a way to solve the problem
+ differently post-refactoring. DBC says to "go into the Ruby Docs and solve the problem again 
+ using a new method." One of the questions my pair and I had was: is there anyway to replace 
+ the '.times' method? I can't seem to find an alternative.
+
+Any ideas?
+
+Here's the snippet of our refactored code in question:
+
+rows.times do |counter|
+    puts "*" * (counter + 1)
+  end
+
+I've looked around and can't find anything that would make the code more efficient or 
+concise. For instance, there's the '.upto' method:
+
+ex:
+# Go up from 3 to 5.
+3.upto(5) do |x|
+
+And the '.step' method:
+
+ex:
+# Increment from 0 to 10, by 2 each time.
+# ... Name the iteration variable "v".
+0.step(10, 2) do |v|
+    puts v
+end
+
+But I'm sure either would work in this case...﻿
+          </code>
+        </div>
+   <p>
+      This questioner certainly identified his problem:  are there alternatives to the <code>.times</code> method that solve the problem of printing the triangle?  This is pretty specific but not very concise.  This is a question that could be asked pretty easily, and it is unneccessary for the author to mention methods like <code>.upto</code> and <code>.step</code>.  Also, the author could benefit from putting his question at the very beginning or in the title of his question.  
+      <br><br><br>
+  
+    <p>
+  </section>
+
+  <section>
+    
+    <div class="blog-footer">
+      <a class="plain-link" href="http://jonathanstar.github.io/index.html">Home</a>
+    </div>
+
+  </section>
+</main>
+
+</html>
